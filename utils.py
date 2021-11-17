@@ -96,5 +96,9 @@ parser_dbm.add_argument("--xcf", action="store_true", dest="xcf",
                         help="build BitByteData as a XCFramework")
 parser_dbm.set_defaults(func=action_dbm)
 
+if len(sys.argv) == 1:
+    parser.print_help()
+    sys.exit(1)
+
 args = parser.parse_args()
 args.func(args)
